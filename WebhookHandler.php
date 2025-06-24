@@ -116,7 +116,6 @@ class WebhookHandler extends Base
             $user = $this->userModel->getByEmail($commit['author']['email']);
 
             $this->dispatcher->dispatch(
-                $event,
                 new GenericEvent(array(
                     'task_id' => $task_id,
                     'task' => $task,
@@ -124,7 +123,8 @@ class WebhookHandler extends Base
                     'commit_message' => $commit['message'],
                     'commit_url' => $commit['url'],
                     'comment' => "[".t('%s committed on Gitea', $commit['author']['name'] ?: $commit['author']['username']).']('.$commit['url'].'): '.trim($commit['message']),
-                ) + $task)
+                ) + $task),
+                $event
             );
         }
 
