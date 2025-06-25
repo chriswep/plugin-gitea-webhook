@@ -12,7 +12,7 @@ Author
 Requirements
 ------------
 
-- Kanboard >= 1.0.37
+- Kanboard >= 1.2.31
 - [Gitea](https://gitea.io/)
 - Gitea webhooks configured for a project
 
